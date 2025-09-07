@@ -47,17 +47,51 @@ function renderizarJogadoras() {
 
     jogadoras.forEach((jogadora, index) => {
         lista.innerHTML += `
-      <div class="card">
-        <img src="${jogadora.foto}" alt="${jogadora.nome}">
-        <h3>${jogadora.nome}</h3>
-        <p>${jogadora.posicao} - ${jogadora.clube}</p>
-        <p>Gols: ${jogadora.gols}</p>
-        <p>Assistências: ${jogadora.assistencias}</p>
-        <p>Jogos: ${jogadora.jogos}</p>
-        <span class="favorita">${jogadora.favorita ? "⭐" : "⭐"}</span>
-      </div>
+        <div class="card">
+            <img src="${jogadora.foto}" alt="${jogadora.nome}">
+            <h3>${jogadora.nome}</h3>
+            <p>${jogadora.posicao} - ${jogadora.clube}</p>
+            <p>Gols: ${jogadora.gols}</p>
+            <p>Assistências: ${jogadora.assistencias}</p>
+            <p>Jogos: ${jogadora.jogos}</p>
+            <span class="favorita">${jogadora.favorita ? "⭐" : "⭐"}</span>
+        </div>
     `;
     });
 }
 
 renderizarJogadoras();
+
+function salvarJogadoras(jogadoras) {
+    localStorage.setItem("jogadoras", JSON.stringify(jogadoras));
+}
+
+document.getElementById("formJogadora").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const jogadoras = carregarJogadoras();
+
+    const nova = {
+        nome: document.getElementById("nome").value,
+        posicao: document.getElementById("posicao").value,
+        clube: document.getElementById("clube").value,
+        gols: document.getElementById("gols").value,
+        assistencias: document.getElementById("assistencias").value,
+        jogos: document.getElementById("jogos").value,
+        foto: document.getElementById("foto").value,
+        favorita: false
+    };
+
+    if (!nova.nome || !nova.posicao || !nova.clube || !nova.foto) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
+    }
+
+    jogadoras.push(nova);
+    salvarJogadoras(jogadoras);
+
+    renderizarJogadoras();
+
+    alert("Jogadora adicionada com sucesso!");
+    e.target.reset();
+});
