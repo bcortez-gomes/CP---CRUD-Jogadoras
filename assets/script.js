@@ -1,0 +1,32 @@
+const jogadorasIniciais = [
+    {
+        nome: "Andressa Alves",
+        posicao: "Meio-campo",
+        clube: "Corinthians",
+        foto: "https://example.com/andressa.jpg",
+        gols: 15,
+        assistencias: 10,
+        jogos: 28,
+        favorita: false,
+    },
+    {
+        nome: "Dayana Rodríguez",
+        posicao: "Meio-campo",
+        clube: "Corinthians",
+        foto: "https://example.com/dayana.jpg",
+        gols: 5,
+        assistencias: 12,
+        jogos: 30,
+        favorita: false,
+    },
+    {
+        nome: "Mariza",
+        posicao: "Zagueira",
+        clube: "Corinthians",
+        foto: "https://example.com/mariza.jpg",
+        gols: 2,
+        assistencias: 1,
+        jogos: 32,
+        favorita: false,
+    },
+];
