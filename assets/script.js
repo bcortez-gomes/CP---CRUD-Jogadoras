@@ -30,3 +30,34 @@ const jogadorasIniciais = [
         favorita: false,
     },
 ];
+
+if (!localStorage.getItem("jogadoras")) {
+    localStorage.setItem("jogadoras", JSON.stringify(jogadorasIniciais));
+}
+
+function carregarJogadoras() {
+    return JSON.parse(localStorage.getItem("jogadoras"));
+}
+
+function renderizarJogadoras() {
+    const lista = document.getElementById("listaJogadoras");
+    lista.innerHTML = "";
+
+    const jogadoras = carregarJogadoras();
+
+    jogadoras.forEach((jogadora, index) => {
+        lista.innerHTML += `
+      <div class="card">
+        <img src="${jogadora.foto}" alt="${jogadora.nome}">
+        <h3>${jogadora.nome}</h3>
+        <p>${jogadora.posicao} - ${jogadora.clube}</p>
+        <p>Gols: ${jogadora.gols}</p>
+        <p>Assistências: ${jogadora.assistencias}</p>
+        <p>Jogos: ${jogadora.jogos}</p>
+        <span class="favorita">${jogadora.favorita ? "⭐" : "⭐"}</span>
+      </div>
+    `;
+    });
+}
+
+renderizarJogadoras();
