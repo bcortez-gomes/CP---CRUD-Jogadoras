@@ -1,0 +1,17 @@
+:root {
+    --cor-primaria: #000000;
+    --cor-secundaria: #3484e0;
+    --cor-fundo: #f2f2f2;
+    --cor-card: #ffffff;
+    --cor-texto: #333333;
+    --cor-texto-secundario: #555555;
+    --cor-estrela: gold;
+    --cor-borda: #cccccc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
