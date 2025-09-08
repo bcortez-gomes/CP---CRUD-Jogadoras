@@ -3,7 +3,7 @@ const jogadorasIniciais = [
         nome: "Andressa Alves",
         posicao: "Meio-campo",
         clube: "Corinthians",
-        foto: "assets/img/1.png",
+        foto: "./assets/img/1.png",
         gols: 15,
         assistencias: 10,
         jogos: 28,
@@ -63,9 +63,12 @@ function renderizarJogadoras() {
     const lista = document.getElementById("listaJogadoras");
     lista.innerHTML = "";
 
-    const jogadoras = filtrarJogadorasSimples();
+    const jogadorasFiltradas = filtrarJogadorasSimples();
+    const jogadorasCompletas = carregarJogadoras();
 
-    jogadoras.forEach((jogadora, index) => {
+    jogadorasFiltradas.forEach(jogadora => {
+        const indexOriginal = jogadorasCompletas.findIndex(j => j.nome === jogadora.nome && j.clube === jogadora.clube);
+
         lista.innerHTML += `
         <div class="card">
             <img src="${jogadora.foto}" alt="${jogadora.nome}">
@@ -75,7 +78,7 @@ function renderizarJogadoras() {
             <p>Assistências: ${jogadora.assistencias}</p>
             <p>Jogos: ${jogadora.jogos}</p>
             
-            <span class="favorita" onclick="toggleFavorita(${index})">
+            <span class="favorita" onclick="toggleFavorita(${indexOriginal})">
                 ${jogadora.favorita
                 ? `<svg width="24" height="24" viewBox="0 0 24 24" fill="gold" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
@@ -86,11 +89,11 @@ function renderizarJogadoras() {
             </span>
 
             <div class="acoes">
-            <button onclick="editarJogadora(${index})">Editar</button>
-            <button onclick="removerJogadora(${index})">Excluir</button>
+            <button onclick="editarJogadora(${indexOriginal})">Editar</button>
+            <button onclick="removerJogadora(${indexOriginal})">Excluir</button>
             </div>
         </div>
-    `;
+        `;
     });
 }
 
