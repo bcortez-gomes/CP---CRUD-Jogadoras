@@ -1,6 +1,6 @@
 # FutFem TCG
 
-![Logo Copag](assets/img/Logo_copag.png)
+<img src="assets/img/Logo_copag.png" alt="Logo Copag" width="150">
 
 ## Descrição
 FutFem TCG é uma aplicação web para cadastro e gerenciamento de cartas de jogadoras de futebol feminino. Inspirado no estilo visual do Pokémon TCG, o sistema permite:
