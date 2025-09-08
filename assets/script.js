@@ -3,7 +3,7 @@ const jogadorasIniciais = [
         nome: "Andressa Alves",
         posicao: "Meio-campo",
         clube: "Corinthians",
-        foto: "https://example.com/andressa.jpg",
+        foto: "assets/img/1.png",
         gols: 15,
         assistencias: 10,
         jogos: 28,
@@ -13,7 +13,7 @@ const jogadorasIniciais = [
         nome: "Dayana Rodríguez",
         posicao: "Meio-campo",
         clube: "Corinthians",
-        foto: "https://example.com/dayana.jpg",
+        foto: "assets/img/2.png",
         gols: 5,
         assistencias: 12,
         jogos: 30,
@@ -23,12 +23,32 @@ const jogadorasIniciais = [
         nome: "Mariza",
         posicao: "Zagueira",
         clube: "Corinthians",
-        foto: "https://example.com/mariza.jpg",
+        foto: "assets/img/3.png",
         gols: 2,
         assistencias: 1,
         jogos: 32,
         favorita: false,
     },
+    {
+        "nome": "Thaís Regina",
+        "posicao": "Zagueira",
+        "clube": "Corinthians",
+        "foto": "assets/img/4.png",
+        "gols": 1,
+        "assistencias": 2,
+        "jogos": 25,
+        "favorita": false
+    },
+    {
+        "nome": "Letícia Teles",
+        "posicao": "Zagueira",
+        "clube": "Corinthians",
+        "foto": "assets/img/5.png",
+        "gols": 0,
+        "assistencias": 0,
+        "jogos": 18,
+        "favorita": false
+    }
 ];
 
 if (!localStorage.getItem("jogadoras")) {
