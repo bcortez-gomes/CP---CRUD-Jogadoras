@@ -15,3 +15,166 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
+body {
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+header {
+    background: var(--cor-primaria);
+    color: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.header__logo {
+    height: 50px;
+    width: auto;
+}
+
+.header__titulo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+#form-section {
+    background: var(--cor-card);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+#formJogadora input,
+#formJogadora button {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+    width: 100%;
+}
+
+#formJogadora button {
+    background: var(--cor-primaria);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+#formJogadora button:hover {
+    background: #b71c1c;
+}
+
+#filtros {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+#filtros input,
+#filtros select {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--cor-borda);
+}
+
+#listaJogadoras {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--cor-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card h3 {
+    margin: 10px;
+    font-size: 1.2rem;
+    color: var(--cor-primaria);
+}
+
+.card p {
+    margin: 5px 10px;
+    font-size: 0.95rem;
+    color: var(--cor-texto-secundario);
+}
+
+.favorita {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+.favorita svg {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.3s;
+}
+
+.favorita:hover svg {
+    transform: scale(1.2);
+}
+
+.acoes {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+.acoes button {
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: #fff;
+    transition: background 0.3s;
+}
+
+.acoes button:first-child {
+    background: var(--cor-secundaria);
+}
+
+.acoes button:first-child:hover {
+    background: #0d47a1;
+}
+
+.acoes button:last-child {
+    background: var(--cor-primaria);
+}
+
+.acoes button:last-child:hover {
+    background: #b71c1c;
+}
