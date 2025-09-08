@@ -43,27 +43,6 @@ function renderizarJogadoras() {
     const lista = document.getElementById("listaJogadoras");
     lista.innerHTML = "";
 
-    const jogadoras = carregarJogadoras();
-
-    jogadoras.forEach((jogadora, index) => {
-        lista.innerHTML += `
-        <div class="card">
-            <img src="${jogadora.foto}" alt="${jogadora.nome}">
-            <h3>${jogadora.nome}</h3>
-            <p>${jogadora.posicao} - ${jogadora.clube}</p>
-            <p>Gols: ${jogadora.gols}</p>
-            <p>Assistências: ${jogadora.assistencias}</p>
-            <p>Jogos: ${jogadora.jogos}</p>
-            <span class="favorita">${jogadora.favorita ? "⭐" : "⭐"}</span>
-        </div>
-    `;
-    });
-}
-
-function renderizarJogadoras() {
-    const lista = document.getElementById("listaJogadoras");
-    lista.innerHTML = "";
-
     const jogadoras = filtrarJogadorasSimples();
 
     jogadoras.forEach((jogadora, index) => {
@@ -77,7 +56,13 @@ function renderizarJogadoras() {
             <p>Jogos: ${jogadora.jogos}</p>
             
             <span class="favorita" onclick="toggleFavorita(${index})">
-            ${jogadora.favorita ? "⭐" : "⭐"}
+                ${jogadora.favorita
+                ? `<svg width="24" height="24" viewBox="0 0 24 24" fill="gold" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+                    </svg>`
+                : `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gold" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
+                    </svg>`}
             </span>
 
             <div class="acoes">
@@ -177,8 +162,8 @@ function filtrarJogadorasSimples() {
     let jogadoras = carregarJogadoras();
 
     if (busca) {
-        jogadoras = jogadoras.filter(j => 
-            j.nome.toLowerCase().includes(busca) || 
+        jogadoras = jogadoras.filter(j =>
+            j.nome.toLowerCase().includes(busca) ||
             j.posicao.toLowerCase().includes(busca)
         );
     }
@@ -187,8 +172,8 @@ function filtrarJogadorasSimples() {
         jogadoras = jogadoras.filter(j => j.clube === filtroClube);
     }
 
-    if (ordenar === "nome") jogadoras.sort((a,b) => a.nome.localeCompare(b.nome));
-    if (ordenar === "posicao") jogadoras.sort((a,b) => a.posicao.localeCompare(b.posicao));
+    if (ordenar === "nome") jogadoras.sort((a, b) => a.nome.localeCompare(b.nome));
+    if (ordenar === "posicao") jogadoras.sort((a, b) => a.posicao.localeCompare(b.posicao));
 
     return jogadoras;
 }
