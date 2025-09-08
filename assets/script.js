@@ -162,3 +162,9 @@ function removerJogadora(index) {
     }
 }
 
+function toggleFavorita(index) {
+    const jogadoras = carregarJogadoras();
+    jogadoras[index].favorita = !jogadoras[index].favorita;
+    salvarJogadoras(jogadoras);
+    renderizarJogadoras();
+}
