@@ -1,12 +1,12 @@
 :root {
     --cor-primaria: #000000;
-    --cor-secundaria: #3484e0;
-    --cor-fundo: #f2f2f2;
+    --cor-secundaria: #2ba3e9;
     --cor-card: #ffffff;
     --cor-texto: #333333;
     --cor-texto-secundario: #555555;
     --cor-estrela: gold;
     --cor-borda: #cccccc;
+    --cor-botao-envio: #45d151;
 }
 
 * {
@@ -32,13 +32,12 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    max-width: 1200px;
     margin: 0 auto;
     gap: 20px;
 }
 
 .header__logo {
-    height: 50px;
+    height: 65px;
     width: auto;
 }
 
@@ -74,7 +73,7 @@ header {
 }
 
 #formJogadora button:hover {
-    background: #b71c1c;
+    background: var(--cor-botao-envio);
 }
 
 #filtros {
@@ -101,7 +100,7 @@ header {
     background: var(--cor-card);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(206, 206, 206, 0.1);
     position: relative;
     transition: transform 0.3s;
 }
@@ -112,19 +111,23 @@ header {
 
 .card img {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 450px;
+    object-fit: contain;
+    display: block;
+    margin: 75px 0 75px 0;
 }
 
 .card h3 {
     margin: 10px;
     font-size: 1.2rem;
     color: var(--cor-primaria);
+    font-weight: bold;
+    font-size: larger;
 }
 
 .card p {
     margin: 5px 10px;
-    font-size: 0.95rem;
+    font-size: medium;
     color: var(--cor-texto-secundario);
 }
 
