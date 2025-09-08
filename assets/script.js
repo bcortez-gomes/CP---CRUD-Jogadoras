@@ -64,7 +64,7 @@ function renderizarJogadoras() {
     const lista = document.getElementById("listaJogadoras");
     lista.innerHTML = "";
 
-    const jogadoras = carregarJogadoras();
+    const jogadoras = filtrarJogadorasSimples();
 
     jogadoras.forEach((jogadora, index) => {
         lista.innerHTML += `
@@ -168,3 +168,31 @@ function toggleFavorita(index) {
     salvarJogadoras(jogadoras);
     renderizarJogadoras();
 }
+
+function filtrarJogadorasSimples() {
+    const busca = document.getElementById("busca").value.toLowerCase();
+    const filtroClube = document.getElementById("filtroClube").value;
+    const ordenar = document.getElementById("ordenar").value;
+
+    let jogadoras = carregarJogadoras();
+
+    if (busca) {
+        jogadoras = jogadoras.filter(j => 
+            j.nome.toLowerCase().includes(busca) || 
+            j.posicao.toLowerCase().includes(busca)
+        );
+    }
+
+    if (filtroClube) {
+        jogadoras = jogadoras.filter(j => j.clube === filtroClube);
+    }
+
+    if (ordenar === "nome") jogadoras.sort((a,b) => a.nome.localeCompare(b.nome));
+    if (ordenar === "posicao") jogadoras.sort((a,b) => a.posicao.localeCompare(b.posicao));
+
+    return jogadoras;
+}
+
+document.getElementById("busca").addEventListener("input", renderizarJogadoras);
+document.getElementById("filtroClube").addEventListener("change", renderizarJogadoras);
+document.getElementById("ordenar").addEventListener("change", renderizarJogadoras);
