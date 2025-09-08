@@ -1,5 +1,7 @@
 # FutFem TCG
 
+## Por Beatriz Cortez Gomes
+
 <img src="assets/img/Logo_copag.png" alt="Logo Copag" width="150">
 
 ## Descrição
