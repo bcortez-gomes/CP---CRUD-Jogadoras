@@ -60,7 +60,34 @@ function renderizarJogadoras() {
     });
 }
 
-renderizarJogadoras();
+function renderizarJogadoras() {
+    const lista = document.getElementById("listaJogadoras");
+    lista.innerHTML = "";
+
+    const jogadoras = carregarJogadoras();
+
+    jogadoras.forEach((jogadora, index) => {
+        lista.innerHTML += `
+        <div class="card">
+            <img src="${jogadora.foto}" alt="${jogadora.nome}">
+            <h3>${jogadora.nome}</h3>
+            <p>${jogadora.posicao} - ${jogadora.clube}</p>
+            <p>Gols: ${jogadora.gols}</p>
+            <p>Assistências: ${jogadora.assistencias}</p>
+            <p>Jogos: ${jogadora.jogos}</p>
+            
+            <span class="favorita" onclick="toggleFavorita(${index})">
+            ${jogadora.favorita ? "⭐" : "⭐"}
+            </span>
+
+            <div class="acoes">
+            <button onclick="editarJogadora(${index})">Editar</button>
+            <button onclick="removerJogadora(${index})">Excluir</button>
+            </div>
+        </div>
+    `;
+    });
+}
 
 function salvarJogadoras(jogadoras) {
     localStorage.setItem("jogadoras", JSON.stringify(jogadoras));
@@ -95,3 +122,32 @@ document.getElementById("formJogadora").addEventListener("submit", function (e) 
     alert("Jogadora adicionada com sucesso!");
     e.target.reset();
 });
+
+function editarJogadora(index) {
+    const jogadoras = carregarJogadoras();
+    const jogadora = jogadoras[index];
+
+    const novoNome = prompt("Nome:", jogadora.nome) || jogadora.nome;
+    const novaPosicao = prompt("Posição:", jogadora.posicao) || jogadora.posicao;
+    const novoClube = prompt("Clube:", jogadora.clube) || jogadora.clube;
+    const novosGols = prompt("Gols:", jogadora.gols) || jogadora.gols;
+    const novasAssistencias = prompt("Assistências:", jogadora.assistencias) || jogadora.assistencias;
+    const novosJogos = prompt("Jogos:", jogadora.jogos) || jogadora.jogos;
+    const novaFoto = prompt("URL da Foto:", jogadora.foto) || jogadora.foto;
+
+    jogadoras[index] = {
+        nome: novoNome,
+        posicao: novaPosicao,
+        clube: novoClube,
+        gols: novosGols,
+        assistencias: novasAssistencias,
+        jogos: novosJogos,
+        foto: novaFoto,
+        favorita: jogadora.favorita
+    };
+
+    salvarJogadoras(jogadoras);
+    renderizarJogadoras();
+    alert("Jogadora editada com sucesso!");
+}
+
