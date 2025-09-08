@@ -151,3 +151,14 @@ function editarJogadora(index) {
     alert("Jogadora editada com sucesso!");
 }
 
+function removerJogadora(index) {
+    const jogadoras = carregarJogadoras();
+
+    if (confirm(`Tem certeza que deseja remover ${jogadoras[index].nome}?`)) {
+        jogadoras.splice(index, 1);
+        salvarJogadoras(jogadoras);
+        renderizarJogadoras();
+        alert("Jogadora removida com sucesso!");
+    }
+}
+
