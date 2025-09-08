@@ -67,7 +67,9 @@ function renderizarJogadoras() {
     const jogadorasCompletas = carregarJogadoras();
 
     jogadorasFiltradas.forEach(jogadora => {
-        const indexOriginal = jogadorasCompletas.findIndex(j => j.nome === jogadora.nome && j.clube === jogadora.clube);
+        const indexOriginal = jogadorasCompletas.findIndex(
+            j => j.nome === jogadora.nome && j.clube === jogadora.clube
+        );
 
         lista.innerHTML += `
         <div class="card">
@@ -80,12 +82,8 @@ function renderizarJogadoras() {
             
             <span class="favorita" onclick="toggleFavorita(${indexOriginal})">
                 ${jogadora.favorita
-                ? `<svg width="24" height="24" viewBox="0 0 24 24" fill="gold" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
-                    </svg>`
-                : `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gold" stroke-width="2" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/>
-                    </svg>`}
+                ? '<svg width="24" height="24" viewBox="0 0 24 24" fill="gold" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>'
+                : '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="gold" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z"/></svg>'}
             </span>
 
             <div class="acoes">
